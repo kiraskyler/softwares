@@ -1,8 +1,8 @@
 # author 	kiraskyler
-# data		20150525
+# data		20150526
 # connect 	kiraskyler@163.com
-# version 	V0.0.2.20210525
-# describe  template for bash 
+# version 	V0.0.3.20210526
+# describe  create .gitignore in every dir, create .gitkeep in every emputy dir
 
 # how to use
 # ./git.sh or ./git.sh ./		input path or select local path to do
@@ -11,28 +11,37 @@
 #!/bin/bash
 
 #################### code ###########################
-word_path=""
+work_path=`pwd`
+force=false
+log=false
+remove=false
+
+func_log()
+{
+	if [ $log == true ]
+	then
+		echo " --- $1 --- "
+	fi 
+}
 
 dir_is_emputy()
-{ 
-	# echo -n " $1   "
-	# echo " `ls $1 | wc -w` "
-	return `ls -A $1 | wc -w`
+{
+	if [ $force == true ] && [ -f $1/.gitkeep ]
+	then
+		return 0
+	else
+		return `ls -A $1 | wc -w`
+	fi
 }
 
 get_dir()
 {
-	if [ `echo $1 | wc -w` == 0 ]
-	then
-		work_path=`pwd`
+	if [ -d $1 ]
+	then 
+		work_path=$1
 	else
-		if [ -d $1 ]
-		then 
-			work_path=$1
-		else
-			echo "input dir path erro!"
-			exit -1
-		fi
+		echo "input dir path erro!"
+		exit -1
 	fi
 }
 
@@ -44,34 +53,85 @@ do
 done
 }
 
-dir_touch_file()
+func_dir_remove()
 {
-	# echo
+	if [ ! -f $1/$2/git_keep_ignore.sh ]
+	then
+		rm -f $1/$2/.gitignore $1/$2/.gitkeep 2> /dev/null
+		echo_print_newline $3
+		echo -e "[r] $2 "
+	fi
+}
+
+func_dir_touch()
+{
+	# func_log " func_dir_touch $1/$2/ "
+	if dir_is_emputy $1/$2 == 0
+	then
+		cp -f ./.gitkeep $1/$2/.gitkeep 2> /dev/null || true			# 空目录放
+		echo_print_newline $3
+		echo -e "[v] $2 "
+	else
+		echo_print_newline $3
+		echo -e "[x] $2 "
+	fi
+	cp -f ./.gitignore $1/$2/.gitignore 2> /dev/null || true		# 所有目录都放该文件
+}
+
+
+func_dir_loop()
+{
+	func_log " loop $1 "
+	# func_dir_touch_file $1 "/" $2
+
 	for path in `ls $1`
 	do
-		if [ -d $1/$path ]							# path is dir
+		if [ -d $1/$path ] 				# path is dir
 		then
-			# echo -n -e "\t" 
-			if dir_is_emputy $1/$path == 0
+			if [ $remove == false ]
 			then
-				cp -f ./.gitkeep $1/$path/.gitkeep 2> /dev/null || true
-				echo_print_newline $2
-				echo -e "[v] $path "
+				func_dir_touch $1 $path $2
 			else
-				echo_print_newline $2
-				echo -e "[x] $path "
+				func_dir_remove $1 $path $2
 			fi
-			dir_touch_file $1/$path $2+1
+			
+			func_dir_loop $1/$path $2+1
 		fi
 	done
 }
 
-# get dir path form command
-get_dir $1
+while getopts "d:fhlr" arg
+do
+	case $arg in
+		d)
+			get_dir $OPTARG
+			;;
+		f)
+			force=true
+			;;
+		l)
+			log=true
+			;;
+		h)
+			echo -e "normal: ./git_keep_ignore.sh -d ./"
+			echo -e "normal remove: ./git_keep_ignore.sh -d ./ -r"
+			echo
+			echo -e "\t-d dir [path], work in place path, if not place -d, it work in ./"
+			echo -e "\t-f force, work force, maybe replace .gitkeep and .gitignore"
+			echo -e "\t-h help, now you see that"
+			echo -e "\t-l log, echo log"
+			echo -e "\t-r remove, remove .gitkeep and .gitignore"
+			;;
+		r)
+			remove=true
+			;;
+		\?)
+			echo "???"
+			;;
+		esac
+done
 
 # loop dirs touch file
-
-cp ./.gitignore $work_path/.gitignore 2> /dev/null || true
-dir_touch_file $work_path 0
+func_dir_loop $work_path 0
 
 # end

@@ -26,7 +26,7 @@ drwxrwxr-x 2 kira kira 4096 5月  26 09:02 emputydir/
 -rw-rw-r-- 1 kira kira  195 5月  26 08:44 .gitkeep
 -rwxrwxr-x 1 kira kira 1226 5月  26 09:01 git_keep_ignore.sh*
 -rw-rw-r-- 1 kira kira  657 5月  26 08:54 Readme.md
-[kira@kira-virtual-machine git]$ ./git_keep_ignore.sh 
+[kira@kira-virtual-machine git]$ ./git_keep_ignore.sh
 [v] emputydir 
 [kira@kira-virtual-machine git]$ ll ./emputydir/
 总用量 12
@@ -47,7 +47,7 @@ drwxrwxr-x 2 kira kira 4096 5月  26 09:02 emputydir/
 * 对指定目录执行，执行命令时额外指定文件夹即可
 
 ```
-[kira@kira-virtual-machine git]$ ./git_keep_ignore.sh ../
+[kira@kira-virtual-machine git]$ ./git_keep_ignore.sh -d ../
 [x] git 
 [x] template 
 [x] tools 

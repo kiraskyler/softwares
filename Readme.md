@@ -8,19 +8,23 @@
 
 ## 文件目录
 
-* 这是单独的一篇文章，要什么文件目录
+```
+[kira@kira-virtual-machine softwares]$ ll
+总用量 44
+drwxrwxr-x  8 kira kira 4096 5月  26 08:49 ./
+drwxr-xr-x 11 kira kira 4096 5月  25 17:16 ../
+drwxrwxr-x  2 kira kira 4096 5月  26 09:04 git/
+drwxrwxr-x  8 kira kira 4096 5月  25 17:21 .git/
+-rw-rw-r--  1 kira kira  322 5月  26 09:04 .gitignore
+-rw-rw-r--  1 kira kira   40 5月  26 08:39 .gitkeep
+-rw-rw-r--  1 kira kira 1892 5月  25 17:16 Readme.md
+drwxrwxr-x  2 kira kira 4096 5月  25 19:02 template/
+drwxrwxr-x  2 kira kira 4096 5月  25 17:20 tools/
+drwxrwxr-x  3 kira kira 4096 5月  25 17:16 typora/
+```
 
->├── doc	                   		// 项目有关文档
->├── File_bak                   	// 项目相关的原始文件，可能包含历史版本等
->├── hardware                    // 项目相关的硬件资源文件
->├── img             	        // Readme文件或其他文件使用的image文件
->├── licenses					// 项目的版权声明或许可证文件
->├── program						// 项目的主要代码程序
->├── program_test			    // 测试项目的有关程序的代码文件				
->├── 参考文档                     // 项目的相关参考文件
->├── 测试工具					 // 项目相关用于测试的可用工具
->├── 发布版本					 // 已经经过测试，可以发布使用的软件版本
->├── Readme.md				   // 当前项目或文件的描述文件
+* git git工具，生成.gitignore .gitkeep
+* template 模板
 
 ## 安装说明
 
@@ -56,4 +60,5 @@
 
 ## 更新日志
 
-* V0.0.0.20210101
+* V0.0.3.20210526
+  * 更新git工具

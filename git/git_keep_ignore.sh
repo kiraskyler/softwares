@@ -11,7 +11,9 @@
 #!/bin/bash
 
 #################### code ###########################
+file_path=$(readlink -f "$(dirname "$0")")
 work_path=`pwd`
+work=true
 force=false
 log=false
 remove=false
@@ -68,14 +70,15 @@ func_dir_touch()
 	# func_log " func_dir_touch $1/$2/ "
 	if dir_is_emputy $1/$2 == 0
 	then
-		cp -f ./.gitkeep $1/$2/.gitkeep 2> /dev/null || true			# 空目录放
+		cp -f $file_path/.gitkeep  $1/$2/.gitkeep 2> /dev/null || true			# 空目录放
+		func_log " cp -f $file_path/.gitkeep  $1/$2/.gitkeep 2> /dev/null || true "
 		echo_print_newline $3
 		echo -e "[v] $2 "
 	else
 		echo_print_newline $3
 		echo -e "[x] $2 "
 	fi
-	cp -f ./.gitignore $1/$2/.gitignore 2> /dev/null || true		# 所有目录都放该文件
+	cp -f $file_path/.gitignore $1/$2/.gitignore 2> /dev/null || true		# 所有目录都放该文件
 }
 
 
@@ -121,6 +124,7 @@ do
 			echo -e "\t-h help, now you see that"
 			echo -e "\t-l log, echo log"
 			echo -e "\t-r remove, remove .gitkeep and .gitignore"
+			work=false
 			;;
 		r)
 			remove=true
@@ -132,6 +136,11 @@ do
 done
 
 # loop dirs touch file
-func_dir_loop $work_path 0
+# func_log " $file_path "
+
+if [ $work == true ]
+then
+	func_dir_loop $work_path 0
+fi
 
 # end

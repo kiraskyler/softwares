@@ -34,7 +34,7 @@
   --light-text-color: #9daab6;
   --light-text-color-darker: #74818d;
   --codeboxes: #f0f0f0;
-  --codeboxes-lighter: #1c375f;
+  --codeboxes-lighter: #9fd5b7; /*源代码模式选中的行背景颜色*/
   --rawblock-edit-panel-bd: transparent;
 
   --primary-color-darkest: #083d33;
@@ -509,7 +509,7 @@ table tr td:last-child {
 .cm-s-inner span.cm-comment,
 .cm-s-typora-default span.cm-comment,
 .cm-s-typora-default span.cm-code {
-  color: #9daab6;
+  color: black;
 }
 
 .cm-s-inner span.cm-string,
@@ -585,7 +585,7 @@ table tr td:last-child {
 
 .cm-s-typora-default .cm-header,
 .cm-s-typora-default .cm-property {
-  color: white;
+  color: black;
   font-weight: 400;
 }
 
@@ -668,8 +668,8 @@ code {
 }
 
 #typora-source {
-  background-color: var(--codeboxes);
-  color: white;
+  background-color: white; /*required*/
+  color: black;
   font-size: 0.9rem;
 }
 

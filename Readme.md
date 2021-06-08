@@ -1,27 +1,16 @@
-# 项目名称
+# software
 
-程序模板 Readme.md V1.0.0
+V1.1.12.20210608
 
 ------
 
 ## 项目简介
 
-## 文件目录
+>本仓库的目的是提供linux/win/mac下常用软件配置
+>
+>目前以提供软件包含：git，typora，astyle，项目模板，文档模板
 
-```
-[kira@kira-virtual-machine softwares]$ ll
-总用量 44
-drwxrwxr-x  8 kira kira 4096 5月  26 08:49 ./
-drwxr-xr-x 11 kira kira 4096 5月  25 17:16 ../
-drwxrwxr-x  2 kira kira 4096 5月  26 09:04 git/
-drwxrwxr-x  8 kira kira 4096 5月  25 17:21 .git/
--rw-rw-r--  1 kira kira  322 5月  26 09:04 .gitignore
--rw-rw-r--  1 kira kira   40 5月  26 08:39 .gitkeep
--rw-rw-r--  1 kira kira 1892 5月  25 17:16 Readme.md
-drwxrwxr-x  2 kira kira 4096 5月  25 19:02 template/
-drwxrwxr-x  2 kira kira 4096 5月  25 17:20 tools/
-drwxrwxr-x  3 kira kira 4096 5月  25 17:16 typora/
-```
+## 文件目录
 
 * git git工具，生成.gitignore .gitkeep
 * template 模板
@@ -62,3 +51,5 @@ drwxrwxr-x  3 kira kira 4096 5月  25 17:16 typora/
 
 * V0.0.3.20210526
   * 更新git工具
+* V1.1.12.20210608
+  * 调整typroa字体颜色，包含源代码背景色，表格颜色，代码颜色

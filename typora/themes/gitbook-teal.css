@@ -337,18 +337,18 @@ table tbody tr:last-child {
 
 table tr th {
   font-weight: bold;
-  border: none;
+  border: 1px solid #dfe2e5;                  /* 表格边框 参考github主题 */
   border-bottom: solid 2px var(--borders);
   margin: 0;
-  padding: 10px 16px;
+  padding: 6px 13px;                          /* 表达大小 */
   transition-duration: 0.3s;
   transition-property: background-color;
 }
 
 table tr td {
-  border: none;
+  border: 1px solid #dfe2e5;
   margin: 0;
-  padding: 10px 16px;
+  padding: 6px 13px;
   transition-duration: 0.3s;
   transition-property: background-color;
 }
@@ -512,9 +512,10 @@ table tr td:last-child {
   color: black;
 }
 
+/* json 中str颜色*/
 .cm-s-inner span.cm-string,
 .cm-s-inner span.cm-string-2 {
-  color: #71a7ff;
+  color: #6097ff;
 }
 
 .cm-s-inner span.cm-number {
@@ -556,8 +557,9 @@ table tr td:last-child {
   color: #b4f6d6;
 }
 
+/* json中的num类型 */
 .cm-s-inner span.cm-attribute {
-  color: #ff9d3d;
+  color: #c4b7fd;
 }
 
 .cm-s-inner span.cm-qualifier,
@@ -566,8 +568,9 @@ table tr td:last-child {
   color: #82ee9d;
 }
 
+/* json中key的颜色 */
 .cm-s-inner span.cm-property {
-  color: #ffd6ad;
+  color: #3aa58d;
 }
 
 .cm-s-inner span.cm-builtin {

@@ -509,7 +509,7 @@ table tr td:last-child {
 .cm-s-inner span.cm-comment,
 .cm-s-typora-default span.cm-comment,
 .cm-s-typora-default span.cm-code {
-  color: black;
+  color: #71a7ff;
 }
 
 /* json 中str颜色*/
@@ -524,11 +524,11 @@ table tr td:last-child {
 
 .cm-s-inner span.cm-variable,
 .cm-s-inner span.cm-variable-2 {
-  color: white;
+  color: #ff9d3d;
 }
 
 .cm-s-inner span.cm-def {
-  color: white;
+  color: #3c66a0;
 }
 
 .cm-s-inner span.cm-operator {
@@ -568,7 +568,8 @@ table tr td:last-child {
   color: #82ee9d;
 }
 
-/* json中key的颜色 */
+/* 2ba245 绿色 */
+/* json中key的颜色 浅马卡龙*/
 .cm-s-inner span.cm-property {
   color: #3aa58d;
 }

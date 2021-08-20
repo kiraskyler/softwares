@@ -18,7 +18,6 @@ astyle "*.c,*.cpp,*.h"\
 	--pad-oper\
 	--unpad-paren\
 	--pad-comma\
-	--delete-empty-lines\
 	--align-pointer=type\
 	--align-reference=name\
 	--break-one-line-headers\
@@ -40,7 +39,6 @@ astyle "*.c,*.cpp,*.h"\
 # --pad-oper\						操作符两边加空格，不加空格的都是斗鸡眼吗
 # --unpad-paren\				    括号周围的空格去掉
 # --pad-comma\						逗号后加空格
-# --delete-empty-lines\				删除函数或者方法内的空行，别想着空行凑行数
 # --align-pointer=type\				指针变量 '*' 和 '&' name对齐到名字，而不是变量后，type 对齐到变量
 # --align-reference=name\			指针变量 '&' 与名字对齐
 # --break-one-line-headers\			花括号放到下一行去

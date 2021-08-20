@@ -6,3 +6,7 @@ Author 	kiraskyler
 # source	https://www.cnblogs.com/smart-zihan/p/12971502.html
 
 ################## code ########################
+*.o
+*.orig
+
+
